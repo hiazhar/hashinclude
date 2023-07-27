@@ -5,12 +5,4 @@
             <h2>{{record.category}}</h2>
         </div>
     </div>
-<br>
-    <div *ngIf="selection" class="bottom">
-        <div class="sub" *ngFor="let subcat of selection.subCategory if  ">
-            <div class="subcat" *ngIf="Checklist.includes(subcat.role)">
-            <h2>  {{ subcat.label }} </h2>   
-            </div>
-        </div>
-    </div>
 </div>

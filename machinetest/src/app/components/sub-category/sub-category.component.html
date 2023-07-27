@@ -1,0 +1,13 @@
+<div class="container">
+
+
+
+<div *ngIf="selectedcategories.includes(selection.category)" class="bottom">
+    <div class="sub" *ngFor="let subcat of selection['subCategory']">
+        <div class="subcat" >
+        <h2>  {{ subcat.label }} </h2>   
+        </div>
+    </div>
+</div>
+    
+</div>

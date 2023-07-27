@@ -1,19 +1,35 @@
-import { Component } from '@angular/core';
-import { Data } from '../../services/data';
+import { Component, OnInit } from '@angular/core';
+import { CommonfileService } from '../../services/commonfile.service'
+import { HttpserviceService } from '../../services/httpservice.service'
 
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
   styleUrls: ['./display.component.css']
 })
-export class DisplayComponent {
-  data: any[] = Data;
+export class DisplayComponent implements OnInit {
+  data: any;
+  category!: string;
   selection: any = [];
-  Checklist = ['COMP_M_VIEW', 'SOP_A_VIEW', 'TEST_M_ADD', 'QS0P_V_VIEW']
+  constructor(private Common: CommonfileService, private dataservice: HttpserviceService) { }
 
-  select(rec: any) {
-    this.selection = rec;
-
+  ngOnInit(): void {
+    this.getData();
+    console.log(this.data)
   }
+  select(rec: any) {
+    this.Common.setData(rec);
+  }
+  getData() {
+   this.dataservice.getData().subscribe((data) => {
+      this.data=data;
+    },
+      (error) => {
+        console.error('Error:', error);
+      })
+  }
+
+
+
 
 }
