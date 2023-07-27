@@ -8,10 +8,10 @@ import { Data } from '../../services/data';
 })
 export class DisplayComponent {
   data: any[] = Data;
-  selection:any=[];
-  Checklist=['COMP_M_VIEW','SOP_A_VIEW','TEST_M_ADD','QS0P_V_VIEW']
+  selection: any = [];
+  Checklist = ['COMP_M_VIEW', 'SOP_A_VIEW', 'TEST_M_ADD', 'QS0P_V_VIEW']
 
-  select(rec:any){
+  select(rec: any) {
     this.selection = rec;
 
   }
